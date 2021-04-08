@@ -40,6 +40,6 @@ jobs:
           echo localUsr = "${{ secrets.LOCAL_USER }}" >> variables.tfvars
           echo localPwd =  "${{ secrets.LOCAL_PWD }}" >> variables.tfvars
           terraform init
-          terraform plan
-          #terraform apply -auto-approve
-          #terraform destroy -auto-approve
+          terraform plan -var-file="variables.tfvars"
+          #terraform apply -auto-approve -var-file="variables.tfvars"
+          #terraform destroy -auto-approve -var-file="variables.tfvars"
