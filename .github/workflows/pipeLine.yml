@@ -37,8 +37,8 @@ jobs:
           export ARM_CLIENT_SECRET="${{ secrets.AZUREPWD }}"
           export ARM_TENANT_ID="${{ secrets.TENANTID }}"
           export ARM_SUBSCRIPTION_ID="316098cb-8835-448e-90e6-20a073644853"
-          echo local_user = \"${{ secrets.LOCAL_USER }}\" >> variables.tfvars
-          echo local_pwd =  \"${{ secrets.LOCAL_PWD }}\" >> variables.tfvars
+          echo local_user = "${{ secrets.LOCAL_USER }}" >> variables.tfvars
+          echo local_pwd =  "${{ secrets.LOCAL_PWD }}" >> variables.tfvars
           terraform init
           terraform plan
           #terraform apply -auto-approve
