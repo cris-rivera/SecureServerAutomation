@@ -33,9 +33,9 @@ jobs:
           
       - name: Run Terraform
         run: |
-          export ARM_CLIENT_ID= "${{ secrets.AZUREUSER }}"
-          export ARM_CLIENT_SECRET= "${{ secrets.AZUREPWD }}"
-          export ARM_TENANT_ID= "${{ secrets.TENANTID }}"
+          export ARM_CLIENT_ID= ${{ secrets.AZUREUSER }}
+          export ARM_CLIENT_SECRET= ${{ secrets.AZUREPWD }}
+          export ARM_TENANT_ID= ${{ secrets.TENANTID }}
           echo local_user = \"${{ secrets.LOCAL_USER }}\" >> variables.tfvars
           echo local_pwd =  \"${{ secrets.LOCAL_PWD }}\" >> variables.tfvars
           terraform init
