@@ -29,12 +29,12 @@ jobs:
       
       - name: azure authorization
         run: |
-          az login -u {{ secrets.AzureUser }} -p {{ secrets.AzurePwd }}
+          az login -u {{ secrets.AZUREUSER }} -p {{ secrets.AZUREPWD }}
           
       - name: Run Terraform
         run: |
-          echo local_user = \"${{ secrets.local_user }}\" >> variables.tfvars
-          echo local_pwd =  \"${{ secrets.local_pwd }}\" >> variables.tfvars
+          echo local_user = \"${{ secrets.LOCAL_USER }}\" >> variables.tfvars
+          echo local_pwd =  \"${{ secrets.LOCAL_PWD }}\" >> variables.tfvars
           terraform init
           terraform plan
           #terraform apply -auto-approve

@@ -58,8 +58,12 @@ resource "azurerm_windows_virtual_machine" "crisWindowsServer" {
   resource_group_name  = "imageRG"
   location            = "westus"
   size                  = "Standard_F2"
-  admin_username        = "testadmin"
-  admin_password        = "cyberOps@UofA"
+  #admin_username        = "testadmin"
+  #admin_password        = "cyberOps@UofA"
+  
+  admin_username = var.localUsr
+  admin_password = var.localPwd
+
   network_interface_ids  = [
     azurerm_network_interface.cris_nic.id,
   ]
@@ -69,8 +73,9 @@ resource "azurerm_windows_virtual_machine" "crisWindowsServer" {
     storage_account_type  = "Standard_LRS"
   }
 
-  source_image_id = "/subscriptions/316098cb-8835-448e-90e6-20a073644853/resourceGroups/imageRG/providers/Microsoft.Compute/images/Windows2016STIGImg"
+  source_image_id = "/subscriptions/316098cb-8835-448e-90e6-20a073644853/resourceGroups/imageRG/providers/Microsoft.Compute/images/finalSTIGImg"
   
+  provision_vm_agent = true
 
   #source_image_reference {
     #publisher   = "MicrosoftWindowsServer"
